@@ -1,0 +1,33 @@
+# My previous sentiment analysis experiment (about sentiment analysis on a content about digital detox and doom scrolling) suffered from a lack of dataset, so I build this.
+
+![graph](figures/pie_chart.png)
+
+## Overview
+An end-to-end data science experiment exploring public sentiment on a YouTube Video about Doom Scrolling in Indonesia.
+
+## Backgrounds
+After finishing my first ever sentiment analysis experiment on my GitHub repo:
+
+https://github.com/jovan-AIcoder/sentiment-analysis-on-digital-detox
+
+I noticed that the dataset on that experiment is very small (10 samples only!), so my Bidirectional LSTM (BI-LSTM) model is not trained properly at that experiment. This happens because language models (even for BI-LSTM) must be trained on large datasets.
+
+Because of that, **I've done that experiment again in this repo, but I took samples of comments from a YouTube video about Doom Scrolling.** The video is published from a channel in Indonesia, and **the comments also are in Indonesian language.** The pipeline of this experiment is still same, the difference is only on the dataset size. In this experiment, I've trained my BI-LSTM model so well on **453 comments.**
+
+## Experimental Results
+The results of this experiment are not much different from those of the previous experiment (see at the figure above). The most different thing is about the confusion matrix and the ROC curve, which is shown below.
+
+![matrix](figures/bilstm_confusion_matrix.png)
+
+![roc_curve](figures/roc_curve.png)
+
+And also, the wordcloud analysis:
+
+![wordcloud](figures/wordcloud_analysis.png)
+
+**I have obtained a much richer dataset than previous experiments!** From this dataset, the behavioural of the doom scroller can be determined, and the BI-LSTM model can be trained properly.  
+
+## Author
+Jovan, 2026
+
+Licensed under MIT License.
