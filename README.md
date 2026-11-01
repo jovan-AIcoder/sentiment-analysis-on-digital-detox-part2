@@ -39,6 +39,10 @@ Classification Report:
    macro avg       0.70      0.71      0.71        89
 weighted avg       0.75      0.74      0.74        89
 ```
+
+## New in This Experiment: `inference.py`
+In this experiment, I made a Python script for inference (just type `py inference.py` on your terminal after cloning this repo), which is a Python script to use the trained BI-LSTM model to predict other comments' sentiment.
+
 ## Author
 Jovan, 2026
 
