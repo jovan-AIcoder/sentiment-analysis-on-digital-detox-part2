@@ -55,7 +55,7 @@ print(f"Training samples: {len(X_train)} | Testing samples: {len(X_test)}")
 
 # Text Vectorization Layer (Tokenization & Padding)
 MAX_VOCAB_SIZE = 5000  # Maximum vocabulary size
-MAX_SEQUENCE_LENGTH = 50  # Maximum words per comment
+MAX_SEQUENCE_LENGTH = 100  # Maximum words per comment
 EMBEDDING_DIM = 64
 
 vectorize_layer = layers.TextVectorization(
@@ -89,7 +89,7 @@ model = models.Sequential([
     layers.Bidirectional(layers.LSTM(32, return_sequences=False)),
     
     # Dense Layers
-    layers.Dropout(0.3),
+    layers.Dropout(0.2),
     layers.Dense(16, activation='relu'),
     layers.Dense(1, activation='sigmoid')  # Output probability for Class 1 (Pro)
 ])
@@ -104,8 +104,8 @@ model.compile(
 model.summary()
 
 # Train the Model
-EPOCHS = 15
-BATCH_SIZE = 16
+EPOCHS = 10
+BATCH_SIZE = 32
 
 print("\nStarting model training...")
 history = model.fit(
@@ -115,6 +115,8 @@ history = model.fit(
     batch_size=BATCH_SIZE,
     verbose=1
 )
+train_hist = pd.DataFrame(history.history)
+train_hist.to_csv('train_history/history.csv', index=False)
 
 # Model Evaluation
 print("\n" + "="*40)
@@ -152,9 +154,9 @@ print(f"Model successfully saved to '{MODEL_SAVE_PATH}'")
 def predict_comment_sentiment(comment_text):
     cleaned = preprocess_text(comment_text)
     input_data = tf.constant([cleaned], dtype=tf.string)
-    prob = model.predict(input_data, verbose=0)[0][0]
+    prob = model.predict(input_data, verbose=1)[0][0]
     predicted_class = 1 if prob >= 0.5 else 0
-    class_label = "Pro (Accept Challenge)" if predicted_class == 1 else "Con / Skeptical / OOT"
+    class_label = "Pro" if predicted_class == 1 else "Con / Skeptical / OOT"
     
     print(f"\n[Test Comment]: \"{comment_text}\"")
     print(f"[Probability Pro]: {prob:.4f}")

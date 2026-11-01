@@ -25,8 +25,20 @@ And also, the wordcloud analysis:
 
 ![wordcloud](figures/wordcloud_analysis.png)
 
-**I have obtained a much richer dataset than previous experiments!** From this dataset, the behavioural of the doom scroller can be determined, and the BI-LSTM model can be trained properly.  
+**I have obtained a much richer dataset than previous experiments!** From this dataset, the behavioural of the doom scroller can be determined, and the BI-LSTM model can be trained properly. 
+Also, I've tuned some hyperparameters of the model, and this is the final evaluation results:
 
+```bash
+Classification Report:
+              precision    recall  f1-score   support
+
+ Con/OOT (0)       0.83      0.79      0.81        61
+     Pro (1)       0.58      0.64      0.61        28
+
+    accuracy                           0.74        89
+   macro avg       0.70      0.71      0.71        89
+weighted avg       0.75      0.74      0.74        89
+```
 ## Author
 Jovan, 2026
 
