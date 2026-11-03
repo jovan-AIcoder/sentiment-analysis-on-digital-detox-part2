@@ -28,7 +28,7 @@ And also, the wordcloud analysis:
 **I have obtained a much richer dataset than previous experiments!** From this dataset, the behavioural of the doom scroller can be determined, and the BI-LSTM model can be trained properly. 
 Also, I've tuned some hyperparameters of the model, and this is the final evaluation results:
 
-```bash
+```plaintext
 Classification Report:
               precision    recall  f1-score   support
 
