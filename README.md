@@ -14,6 +14,13 @@ I noticed that the dataset on that experiment is very small (10 samples only!), 
 
 Because of that, **I've done that experiment again in this repo, but I took samples of comments from a YouTube video about Doom Scrolling.** The video is published from a channel in Indonesia, and **the comments also are in Indonesian language.** The pipeline of this experiment is still same, the difference is only on the dataset size. In this experiment, I've trained my BI-LSTM model so well on **453 comments.**
 
+## 🛡️ Data Privacy & Ethics (PII Compliance)
+
+To strictly comply with **Data Privacy Principles** (e.g., preventing *Reverse Search / Exact String Matching* via search engines) and protect individual identities:
+1. **PII Striping:** All `@mentions`, usernames, and specific personal entities were removed using Regex preprocessing (`re.sub(r'@\w+', '', text)`).
+2. **LLM Paraphrasing:** All comments were paraphrased using the **Gemini API** (`gemini-3.8-flash`) prior to public repository release. This preserves the original semantic sentiment (Pro/Con tone) while preventing re-identification of original social media users.
+3. **Raw Data Exclusion:** Raw scraped CSV files are excluded via `.gitignore`.
+
 ## Experimental Results
 The results of this experiment are not much different from those of the previous experiment (see at the figure above). The most different thing is about the confusion matrix and the ROC curve, which is shown below.
 
